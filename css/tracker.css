@@ -1,0 +1,101 @@
+#header {
+    margin-bottom: 55px;
+}
+
+#logo {
+    display: inline;
+}
+
+#app_title {
+    font-size: 40px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #009900;
+    display: inline;
+}
+
+#no_assns {
+    display: none;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#header_no_assns {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: italic;
+    color: #404040;
+}
+
+span.sortable {
+    cursor: pointer;
+    font-size: 18px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #404040;
+}
+
+.arrow {
+    font-size: 12px;
+}
+
+.input_error {
+    background-color: #FFEDEF;
+}
+
+.assn_subject, .add_assn_subject {
+    width: 110px;
+}
+
+.datepicker {
+	width: 110px;
+}
+
+td {
+    vertical-align: top;
+}
+
+input[type="text"] {
+    height: 20px;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    padding-left: 2px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+
+#div_add_assn {
+    margin-top: 8px;
+    border: 1px solid #404040;
+    border-radius: 5px;
+}
+
+#add_new_assn_heading {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #008800;
+    padding-left: 5px;
+}
+
+textarea {
+    width: 150px;
+    min-height: 24px;
+
+    resize:none;
+    overflow:hidden;
+
+    border-radius: 3px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.add_assn_btn, .done_assn_btn {
+    height: 21px;
+    text-align: center;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+    background-color: #009900;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.add_assn_btn:hover, .done_assn_btn:hover {
+    background-color: #007700;
+}

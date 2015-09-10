@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <title>Homework Tracker</title>
+
+    <link rel="stylesheet" type="text/css" href="css/tracker.css"/>
+    <link rel="stylesheet" type="text/css" href="pikaday/pikaday.css"/>
+
+    <script type="text/javascript" src="pikaday/pikaday.js"></script>
+    <script type="text/javascript" src="tracker.js"></script>
+
+</head>
+<body>
+
+<table id="header">
+    <tr>
+        <td>
+            <img id="logo" src="icons/icon48.png" />
+        </td>
+        <td>
+            <h1 id="app_title">Homework Tracker</h1>
+        </td>
+    </tr>
+</table>
+
+<div id="no_assns">
+    <h3 id="header_no_assns">No assignments posted</h3>
+</div>
+
+<table id="assn_table">
+    <tr>
+        <th><span class="sortable header_subject">Subject<span id="arrow_subject" class="arrow"></span></span></th>
+        <th><span class="sortable header_description">Assignment<span id="arrow_description" class="arrow"></span></span></th>
+        <th><span class="sortable header_dueDate">Due Date<span id="arrow_dueDate" class="arrow"></span></span></th>
+        <th></th>
+    </tr>
+</table>
+
+<template id="template_assn_display">
+    <tr>
+        <td>
+            <input type="text" class="assn_subject" maxlength="15"/>
+        </td>
+        <td>
+            <textarea class="assn_description"></textarea>
+        </td>
+        <td>
+            <input type="text" class="datepicker" readonly="readonly"/>
+        </td>
+        <td>
+            <input type="button" class="done_assn_btn" value="Done" />
+        </td>
+    </tr>
+</template>
+
+<div id="div_add_assn">
+    <h3 id="add_new_assn_heading">Add New Assignment</h3>
+    <table>
+        <tr>
+            <td>
+                <input type="text" id="add_subject" class="add_assn_subject" placeholder="Subject" maxlength="15"/>
+            </td>
+            <td>
+                <textarea id="add_description" placeholder="Assignment description" rows="1"></textarea>
+            </td>
+            <td>
+                <input type="text" id="add_date" class="datepicker" placeholder="Due date" readonly="readonly"/>
+            </td>
+            <td>
+                <input type="button" id="add_btn" class="add_assn_btn" value="Add" />
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
