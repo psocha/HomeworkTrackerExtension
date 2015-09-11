@@ -3,6 +3,11 @@ var globalSort = {field:"dueDate", topToBottom:true};
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    chrome.storage.local.get('sort_preferences', function(result) {
+        globalSort = {field:"dueDate", topToBottom:true};
+        if ("sort_preferences" in result) globalSort = result["sort_preferences"];
+    });
+
     chrome.storage.local.get('assignments', function(result) {
         globalAssignments = [];
         if ("assignments" in result) globalAssignments = result["assignments"];
@@ -34,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     globalSort["field"] = clickedField;
                     globalSort["topToBottom"] = true;
                 }
+                chrome.storage.local.set({"sort_preferences": globalSort}, function() {});
                 refresh();
             });
         }
