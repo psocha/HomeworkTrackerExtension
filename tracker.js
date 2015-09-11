@@ -129,8 +129,7 @@ function rowForAssignment(assignment) {
         var dateToDelete = tableRow.querySelector(".datepicker").value;
         var assignmentObj = {subject:subjectToDelete, description:descriptionToDelete, dueDate:dateToDelete};
 
-        tableRow.parentNode.removeChild(tableRow);
-        markAssignmentAsDone(assignmentObj);
+        markAssignmentAsDone(assignmentObj, tableRow);
     });
 
     return row;
@@ -191,7 +190,7 @@ function saveNewAssignment(subject, description, dueDate) {
     refresh();
 }
 
-function markAssignmentAsDone(assignmentObj) {
+function markAssignmentAsDone(assignmentObj, tableRow) {
     var index = -1;
     for (var i = 0; i < globalAssignments.length; i++) {
         var arrayObj = globalAssignments[i];
@@ -204,6 +203,7 @@ function markAssignmentAsDone(assignmentObj) {
     }
     if (index >= 0) {
         globalAssignments.splice(index, 1);
+        tableRow.parentNode.removeChild(tableRow);
         chrome.storage.local.set({"assignments": globalAssignments}, function() {});
         refresh();
     }
