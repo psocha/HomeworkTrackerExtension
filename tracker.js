@@ -140,12 +140,31 @@ function updateRow(updatedBox) {
     }
     if (rowIndex == -1) return;
 
-    var subjectToUpdate = tableRow.querySelector(".assn_subject").value;
-    var descriptionToUpdate = tableRow.querySelector(".assn_description").value;
-    var dateToUpdate = tableRow.querySelector(".datepicker").value;
-    globalAssignments[rowIndex - 1] = {subject:subjectToUpdate, description:descriptionToUpdate, dueDate:dateToUpdate};
-    chrome.storage.local.set({"assignments": globalAssignments}, function() {});
-    refresh();
+    var subjectBox = tableRow.querySelector(".assn_subject");
+    var descriptionBox = tableRow.querySelector(".assn_description");
+    var dueDateBox = tableRow.querySelector(".datepicker");
+    subjectBox.className = "assn_subject";
+    descriptionBox.className = "assn_description";
+    dueDateBox.className = "datepicker";
+
+    var subjectToUpdate = subjectBox.value;
+    var descriptionToUpdate = descriptionBox.value;
+    var dateToUpdate = dueDateBox.value;
+
+    var errors = invalidInputs(subjectToUpdate, descriptionToUpdate, dateToUpdate);
+    if (errors["subject"] == true) subjectBox.className = "input_error assn_subject";
+    if (errors["description"] == true) descriptionBox.className = "input_error assn_description";
+    if (errors["dueDate"] == true) dueDateBox.className = "input_error datepicker";
+
+    if (!errors["subject"] && !errors["description"] && !errors["dueDate"]) {
+        globalAssignments[rowIndex - 1] = {
+            subject: subjectToUpdate,
+            description: descriptionToUpdate,
+            dueDate: dateToUpdate
+        };
+        chrome.storage.local.set({"assignments": globalAssignments}, function() {});
+        refresh();
+    }
 }
 
 function refresh() {
