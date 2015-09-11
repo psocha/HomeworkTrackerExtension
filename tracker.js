@@ -74,6 +74,7 @@ function generateDisplay() {
             subjectBox.value = "";
             descriptionBox.value = "";
             dueDateBox.value = "";
+            autoResize(descriptionBox);
         }
     });
 
