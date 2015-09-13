@@ -2,6 +2,7 @@
   "manifest_version": 2,
 
   "name": "Homework Tracker",
+  "short_name": "Homework",
   "description": "An extension for managing assignments and due dates",
   "version": "1.0",
 
