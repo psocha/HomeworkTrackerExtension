@@ -59,7 +59,6 @@ input[type="text"] {
 
 textarea {
     width: 150px;
-    min-height: 24px;
 
     resize:none;
     overflow:hidden;

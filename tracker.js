@@ -280,6 +280,6 @@ function refreshTable() {
 }
 
 function autoResize(textarea) {
-    textarea.style.height = "24px";
-    textarea.style.height = (textarea.scrollHeight - 1)+"px";
+    textarea.style.height = "20px";
+    textarea.style.height = (textarea.scrollHeight - 5)+"px";
 }
