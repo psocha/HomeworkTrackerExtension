@@ -173,12 +173,6 @@ function updateRow(updatedBox) {
     }
 }
 
-function refresh() {
-    updateSortHeadings();
-    sortDataSet();
-    refreshTable();
-}
-
 function saveNewAssignment(subject, description, dueDate) {
     var newAssnObj = {subject:subject, description:description, dueDate:dueDate};
     globalAssignments.push(newAssnObj);
@@ -207,6 +201,13 @@ function markAssignmentAsDone(assignmentObj, tableRow) {
         chrome.storage.local.set({"assignments": globalAssignments}, function() {});
         refresh();
     }
+}
+
+function refresh() {
+    updateSortHeadings();
+    sortDataSet();
+    refreshTable();
+    refreshBadge();
 }
 
 function updateSortHeadings() {
@@ -276,6 +277,16 @@ function refreshTable() {
         dateBox.value = globalAssignments[i - 1]["dueDate"];
 
         autoResize(descriptionBox);
+    }
+}
+
+function refreshBadge() {
+    chrome.browserAction.setBadgeBackgroundColor({color: "#008800"});
+    var numItems = globalAssignments.length;
+    if (numItems > 0) {
+        chrome.browserAction.setBadgeText({text: (globalAssignments.length).toString()});
+    } else {
+        chrome.browserAction.setBadgeText({text: ""});
     }
 }
 
